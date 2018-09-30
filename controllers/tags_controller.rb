@@ -5,6 +5,7 @@ require_relative("../models/tag")
 also_reload( '../models/*' )
 require("pry-byebug")
 
+
 get '/tags' do
   @tags = Tag.all()
   erb ( :"tags/index" )

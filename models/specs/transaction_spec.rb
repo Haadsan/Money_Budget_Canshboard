@@ -30,5 +30,6 @@ class TestTransaction < MiniTest::Test
   def test_transaction_has_tag_id
     assert_equal(3, @transaction.tag_id)
   end
+  
 
 end

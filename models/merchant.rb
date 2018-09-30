@@ -1,7 +1,7 @@
 require_relative( '../db/sql_runner' )
 
 class Merchant
-  
+
   attr_accessor :merchant_name
   attr_reader :id
 
@@ -28,6 +28,13 @@ class Merchant
     values = [@merchant_name]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
+  end
+
+  def tags
+    sql = "SELECT t.* FROM tags t INNER JOIN transactions t ON t.tag_id = tag.id WHERE t.merchant_id = $1; "
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |tag| Tag.new(tag)}
   end
 
   def update

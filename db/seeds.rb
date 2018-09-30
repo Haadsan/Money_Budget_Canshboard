@@ -1,4 +1,4 @@
-
+require_relative ("../models/budget.rb")
 require_relative ("../models/merchant.rb")
 require_relative ("../models/tag.rb")
 require_relative ("../models/transaction.rb")
@@ -9,6 +9,7 @@ Merchant.delete_all()
 Tag.delete_all()
 
 
+budget_1 = Budget.new({"budget_amount" => 900})
 
 merchant_1 = Merchant.new({"merchant_name" => "H&M"})
 merchant_1.save
@@ -19,13 +20,13 @@ merchant_2.save
 merchant_3 = Merchant.new({"merchant_name" => "Boots"})
 merchant_3.save
 
-tag_1 = Tag.new({"category_tag" => "Clothes"})
+tag_1 = Tag.new({"category_name" => "Clothes"})
 tag_1.save
 
-tag_2 = Tag.new({"category_tag" => "Food"})
+tag_2 = Tag.new({"category_name" => "Food"})
 tag_2.save
 
-tag_3 = Tag.new({"category_tag" => "Health & Beauty"})
+tag_3 = Tag.new({"category_name" => "Health & Beauty"})
 tag_3.save
 
 

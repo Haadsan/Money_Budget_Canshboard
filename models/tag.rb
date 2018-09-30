@@ -1,13 +1,13 @@
-require_relative( '../db/sqlRunner' )
+require_relative( '../db/sql_runner' )
 
 class Tag
-  
+
   attr_accessor :category_name
   attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @category_name= options['category_name']
+    @category_name = options['category_name']
   end
 
   def save()
@@ -15,8 +15,8 @@ class Tag
     (
       category_name
     )
-    VALUES(
-
+    VALUES (
+      
       $1
 
     )
@@ -26,9 +26,17 @@ class Tag
     @id = results.first()['id'].to_i
   end
 
+
+  def merchants
+    sql = "SELECT m.* FROM merchants m INNER JOIN transactions t ON t.merchant_id = m.id WHERE t.tag_id = $1; "
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |merchant| Merchant.new(merchant)}
+  end
+
   def update
     sql = "UPDATE tags
-    SET (category_tag) = ($1) WHERE id = $2"
+    SET (category_name) = ($1) WHERE id = $2"
     values = [@category_name, @id]
     SqlRunner.run(sql)
   end
@@ -51,21 +59,11 @@ class Tag
   end
 
   def self.find(id)
-    sql = "SELECT * FROM transactions
-    WHERE id = $1"
-    values = [id]
-    results = SqlRunner.run(sql,values)
-    return Transaction.new(results.first)
-
-  end
-
-  def self.find(id)
     sql = "SELECT * FROM tags
     WHERE id = $1"
     values = [id]
     results = Sqlrunner.run(sql,values)
     return Tag.new(results.first)
   end
-
 
 end
