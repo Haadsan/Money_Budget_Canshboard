@@ -13,6 +13,7 @@ class Merchant
 
   end
 
+
   def save()
       sql = "INSERT INTO merchants
       (
@@ -28,6 +29,15 @@ class Merchant
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
     end
+
+    def update
+        sql = "UPDATE merchants
+        SET (merchant_name) = ($1) WHERE id = $2"
+        values = [@merchant_name, @id]
+        SqlRunner.run(sql)
+      end
+
+
 
 
 end

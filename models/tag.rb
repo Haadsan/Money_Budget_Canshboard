@@ -25,5 +25,11 @@ class Tag
       @id = results.first()['id'].to_i
     end
 
+    def update
+      sql = "UPDATE tags
+      SET (category) = ($1) WHERE id = $2"
+      values = [@category, @id]
+      SqlRunner.run(sql)
+    end
 
 end
