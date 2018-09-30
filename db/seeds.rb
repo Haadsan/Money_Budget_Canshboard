@@ -30,31 +30,31 @@ tag_3.save
 
 
 transaction_1 = Transaction.new({
-"transaction_date" => "2018-09-29",
-"transaction_amount" => "100",
-"merchant_id" => merchant_1.id,
-"tag_id" => tag_1.id})
+  "transaction_date" => "2018-09-29",
+  "transaction_amount" => "100",
+  "merchant_id" => merchant_1.id,
+  "tag_id" => tag_1.id})
 transaction_1.save
 
 transaction_2 = Transaction.new({
-"transaction_date" => " 2018-09-30",
-"transaction_amount" => "80",
-"merchant_id" => merchant_2.id,
-"tag_id" => tag_2.id})
+  "transaction_date" => " 2018-09-30",
+  "transaction_amount" => "80",
+  "merchant_id" => merchant_2.id,
+  "tag_id" => tag_2.id})
 transaction_2.save
 
 transaction_3 = Transaction.new({
-"transaction_date" => "2018-09-28",
-"transaction_amount" => "90",
-"merchant_id" => merchant_3.id,
-"tag_id" => tag_3.id})
+  "transaction_date" => "2018-09-28",
+  "transaction_amount" => "90",
+  "merchant_id" => merchant_3.id,
+  "tag_id" => tag_3.id})
 transaction_3.save
 
 transaction_4 = Transaction.new({
-"transaction_date" => "2018-09-27",
-"transaction_amount" => "50",
-"merchant_id" => merchant_1.id,
-"tag_id" => tag_1.id})
+  "transaction_date" => "2018-09-27",
+  "transaction_amount" => "50",
+  "merchant_id" => merchant_1.id,
+  "tag_id" => tag_1.id})
 transaction_4.save
 
 

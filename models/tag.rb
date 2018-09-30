@@ -9,4 +9,21 @@ class Tag
     @category= options['category']
   end
 
+  def save()
+      sql = "INSERT INTO tags
+      (
+        category
+      )
+      VALUES(
+
+        $1
+
+      )
+      RETURNING id"
+      values = [@category]
+      results = SqlRunner.run(sql, values)
+      @id = results.first()['id'].to_i
+    end
+
+
 end
