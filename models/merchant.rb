@@ -1,9 +1,9 @@
 require_relative( '../db/sql_runner' )
 
 class Merchant
-
-
-  attr_reader(:id, :merchant_name)
+  
+  attr_accessor :merchant_name
+  attr_reader :id
 
 
   def initialize(options)

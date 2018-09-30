@@ -1,0 +1,16 @@
+require("sinatra")
+require("sinatra/contrib/all" )
+
+require_relative("../models/tag")
+also_reload( '../models/*' )
+require("pry-byebug")
+
+get '/tags' do
+  @tags = Tag.all()
+  erb ( :"tags/index" )
+end
+
+get '/tags/:id' do
+  @tag = Tag.find(params['id'].to_i)
+  erb( :"tags/show" )
+end

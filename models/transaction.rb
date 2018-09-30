@@ -2,8 +2,8 @@ require_relative( '../db/sql_runner' )
 
 class Transaction
 
-
-  attr_reader(:id, :tag_id, :merchant_id, :transaction_amount, :transaction_date)
+  attr_accessor :tag_id, :merchant_id, :transaction_amount, :transaction_date
+  attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -33,6 +33,43 @@ class Transaction
     @id = results.first()['id'].to_i
   end
 
+  def merchant()
+    sql = "SELECT * FROM merchants WHERE merchant_id = #{@merchant_id}"
+    result = SqlRunner.run(sql).first
+    return Merchant.new(result)
+  end
+
+  def tag()
+    sql = "SELECT * FROM tags WHERE tag_id = #{@tag_id}"
+    result = SqlRunner.run(sql).first
+    return Tag.new(result)
+  end
+
+  def self.transactions_by_tag(tag_id)
+    sql = "SELECT * FROM transactions WHERE tag_id = $1;"
+    transactions = SqlRunner.run(sql)
+    result = transactions.map { |transaction| Transaction.new(transaction) }
+    return result
+  end
+
+  def total_amount_spent_by_tag()
+    transactions = Transaction.transactions_by_tag(@tag_id)
+    total = 0
+    for transaction in transactions
+      total += transaction.transaction_amount
+    end
+    return total
+  end
+
+  def self.total_amount_spent
+    total = 0
+    transactions = Transaction.all
+    for transaction in transactions
+      total += transaction.transaction_amount
+    end
+    return total
+  end
+
   def update
     sql = "UPDATE transactions
     SET (tag_id, merchant_id, transaction_amount, transaction_date) =
@@ -42,28 +79,32 @@ class Transaction
       SqlRunner.run(sql)
     end
 
-  def delete()
+    def delete()
       sql = "DELETE FROM transactions WHERE id = $1;"
       values = [@id]
       SqlRunner.run(sql, values)
     end
 
-  def self.all()
+    def self.all()
       sql = "SELECT * FROM transactions"
       results = SqlRunner.run(sql)
       return results.map {|transaction| Transaction.new(transaction)}
     end
 
-  def self.delete_all()
+    def self.delete_all()
       sql = "DELETE FROM transactions;"
       SqlRunner.run(sql)
     end
 
     def self.find(id)
-    sql = "SELECT * FROM transactions
-    WHERE id = $1"
-    values = [id]
-    results = SqlRunner.run(sql,values)
-    return Transaction.new(results.first)
-  end
+      sql = "SELECT * FROM transactions
+      WHERE id = $1"
+      values = [id]
+      results = SqlRunner.run(sql,values)
+      return Transaction.new(results.first)
+    end
+
+
+
+
   end

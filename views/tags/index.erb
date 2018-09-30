@@ -1,0 +1,9 @@
+<h1> Manage your tags here</h1>
+
+<!-- for each tag give me category tag total -->
+
+
+<% for tag in @tags %>
+<p>Category Tag: <%= tag.category_tag() %></p>
+
+<p><a href="/tags/<%= tag.id%>">Show Tags</a></p>   

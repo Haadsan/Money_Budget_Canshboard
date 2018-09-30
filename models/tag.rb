@@ -1,26 +1,27 @@
-require_relative( '../db/sql_runner' )
+require_relative( '../db/sqlRunner' )
 
 class Tag
-
-  attr_reader(:id, :category_tag)
+  
+  attr_accessor :category_name
+  attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @category_tag= options['category_tag']
+    @category_name= options['category_name']
   end
 
   def save()
     sql = "INSERT INTO tags
     (
-      category_tag
+      category_name
     )
     VALUES(
-      
+
       $1
 
     )
     RETURNING id"
-    values = [@category_tag]
+    values = [@category_name]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -28,7 +29,7 @@ class Tag
   def update
     sql = "UPDATE tags
     SET (category_tag) = ($1) WHERE id = $2"
-    values = [@category_tag, @id]
+    values = [@category_name, @id]
     SqlRunner.run(sql)
   end
 
