@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS tags;
 
 CREATE TABLE tags (
 id SERIAL4 PRIMARY KEY,
-tag_name VARCHAR(255)
+category VARCHAR(255)
 
 );
 

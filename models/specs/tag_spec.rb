@@ -6,7 +6,7 @@ require_relative('../tag.rb')
 class TestTag < MiniTest::Test
 
   def setup
-    @tag = Tag.new({"id" => 1 , "tag_name" => "clothes"})
+    @tag = Tag.new({"id" => 1 , "category" => "clothes"})
   end
 
 
@@ -15,7 +15,7 @@ class TestTag < MiniTest::Test
   end
 
   def test_tag_has_tag_name
-    assert_equal("clothes", @tag.tag_name)
+    assert_equal("clothes", @tag.category)
 end
 
 end
