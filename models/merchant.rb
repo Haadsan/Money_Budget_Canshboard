@@ -31,17 +31,21 @@ class Merchant
     end
 
     def update
-        sql = "UPDATE merchants
-        SET (merchant_name) = ($1) WHERE id = $2"
-        values = [@merchant_name, @id]
-        SqlRunner.run(sql)
-      end
+      sql = "UPDATE merchants
+      SET (merchant_name) = ($1) WHERE id = $2"
+      values = [@merchant_name, @id]
+      SqlRunner.run(sql)
+    end
 
-      def delete()
-        sql = "DELETE FROM merchants WHERE id = $1;"
-        values = [@id]
-        SqlRunner.run(sql, values)
-      end
+    def delete()
+      sql = "DELETE FROM merchants WHERE id = $1;"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    end
 
-
+    def self.all
+      sql = "SELECT * FROM merchants"
+      results = SqlRunner.run(sql)
+      return results.map {|merchant| Merchant.new(merchant)}
+    end
 end

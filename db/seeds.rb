@@ -19,13 +19,13 @@ merchant_2.save
 merchant_3 = Merchant.new({"merchant_name" => "Boots"})
 merchant_3.save
 
-tag_1 = Tag.new({"category" => "Clothes"})
+tag_1 = Tag.new({"category_tag" => "Clothes"})
 tag_1.save
 
-tag_2 = Tag.new({"category" => "Food"})
+tag_2 = Tag.new({"category_tag" => "Food"})
 tag_2.save
 
-tag_3 = Tag.new({"category" => "Health & Beauty"})
+tag_3 = Tag.new({"category_tag" => "Health & Beauty"})
 tag_3.save
 
 

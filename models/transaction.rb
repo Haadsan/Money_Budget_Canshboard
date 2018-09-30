@@ -47,4 +47,10 @@ class Transaction
       values = [@id]
       SqlRunner.run(sql, values)
     end
+
+    def self.all()
+      sql = "SELECT * FROM transactions"
+      results = SqlRunner.run(sql)
+      return results.map {|transaction| Transaction.new(transaction)}
+    end
   end
