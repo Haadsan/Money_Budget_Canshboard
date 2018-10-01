@@ -1,17 +1,20 @@
 <h1>All tags</h1>
 
 <table>
-
   <% for tag in @tags %>
   <tr>
     <td><a href="/tags/<%=tag.id %>"><%= tag.category_name %></a></td>
     <td>
+
       <form action="/tags/<%= tag.id %>/edit" method="get" >
-        <input type="submit" value="Update Tag" />
+        <input type="submit" value="Update" />
+
       </form>
   </tr>
   <% end %>
+
 </table>
+
 <form method="get" action="/tags/new">
   <input type="submit" value="Create Tag" name="category_name">
 </form>
