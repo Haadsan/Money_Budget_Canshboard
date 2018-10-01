@@ -17,8 +17,8 @@ end
 #new
 
 post '/tags/new' do
-  tags = Tag.category_names
   @tag = Tag.new(params)
-  @tag.save() unless tags.include? @tag.category_name
+  @tag.save()
+  erb(:"tags/new")
   redirect to "/tags/new"
 end
