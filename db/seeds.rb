@@ -9,8 +9,6 @@ Merchant.delete_all()
 Tag.delete_all()
 
 
-budget_1 = Budget.new({"budget_amount" => 900})
-
 merchant_1 = Merchant.new({"merchant_name" => "H&M"})
 merchant_1.save
 

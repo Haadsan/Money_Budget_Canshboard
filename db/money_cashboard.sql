@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS transactions;
-DROP TABLE budgets;
 DROP TABLE IF EXISTS merchants;
 DROP TABLE IF EXISTS tags;
 
@@ -14,11 +13,6 @@ CREATE TABLE merchants (
 id SERIAL4 PRIMARY KEY,
 merchant_name VARCHAR(255)
 
-);
-
-CREATE TABLE budgets (
-id SERIAL4 PRIMARY KEY,
-budget_amount INT4
 );
 
 CREATE TABLE transactions (

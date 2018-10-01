@@ -16,7 +16,7 @@ class Tag
       category_name
     )
     VALUES (
-      
+
       $1
 
     )
@@ -62,7 +62,7 @@ class Tag
     sql = "SELECT * FROM tags
     WHERE id = $1"
     values = [id]
-    results = Sqlrunner.run(sql,values)
+    results = SqlRunner.run(sql,values)
     return Tag.new(results.first)
   end
 
