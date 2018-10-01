@@ -14,11 +14,8 @@ get '/tags/new' do
   erb(:"tags/new")
 end
 
-#new
-
 post '/tags/new' do
   @tag = Tag.new(params)
   @tag.save()
-  erb(:"tags/new")
   redirect to "/tags/new"
 end

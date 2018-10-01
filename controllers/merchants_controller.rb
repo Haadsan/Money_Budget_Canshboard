@@ -7,3 +7,10 @@ require_relative('../models/merchant.rb')
 
 also_reload( '../models/*' )
 require("pry-byebug")
+
+
+
+get '/merchants/new' do
+  @merchants = Merchant.all()
+  erb(:"merchants/new")
+end
