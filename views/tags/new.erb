@@ -1,16 +1,6 @@
-<h1>Enter Your Tag Details</h1>
 
-  <form action="/tags/new" method="POST">
-    <label for="tag-field">Category Name:</label>
-    <input id="tag-field" type="text" name="category_name" required>
-  <input type="submit" class="button" value="Save"/>
+<label for="category_name"><%= @tag.category_name %></label>
 
-  <h2>All tags</h1>
-
-<table class="newtable">
-  <% for tag in @tags%>
-     <tr>
-       <td><%= tag.category_name %></td>
-     </tr>
-  <% end %>
-  </table>
+<form action="/tags/<%= @tag.id %>/edit" method="get" >
+  <input type="submit" value="Update" />
+</form>
