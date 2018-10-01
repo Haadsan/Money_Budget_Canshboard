@@ -1,0 +1,6 @@
+
+<label for="merchant_name"><%= @merchant.merchant_name %></label>
+
+<form action="/merchants/<%= @merchant.id %>/edit"  method="get">
+  <input type="submit" value="Update" />
+</form>

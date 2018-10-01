@@ -1,4 +1,4 @@
-<h1>All Merchants</h1>
+<h1>Manage Your Merchants</h1>
 
 <table>
   <% for merchant in @merchants %>
@@ -7,14 +7,15 @@
     <td>
 
       <form method="get" action="/merchant/<%= merchant.id %>/edit"  >
-        <input type="submit" value="Update" />
+        <input type="submit" value="Edit Merchant" />
+
+
+        <form action="/merchants/new" method="get" >
+          <input type="submit" value="Create Merchant" name="category_name">
+        </form>
 
       </form>
   </tr>
   <% end %>
 
 </table>
-
-<form action="/merchants/new" method="get" >
-  <input type="submit" value="Create Merchant" name="category_name">
-</form>
