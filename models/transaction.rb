@@ -47,30 +47,20 @@ class Transaction
     return Tag.new(results.first)
   end
 
-  # def self.transactions_by_tag(tag_id)
-  #   sql = "SELECT * FROM transactions WHERE tag_id = $1;"
-  #   transactions = SqlRunner.run(sql)
-  #   result = transactions.map { |transaction| Transaction.new(transaction) }
-  #   return result
-  # end
-
-  # def self.total_amount_spent_by_tag()
-  #   transactions = Transaction.transactions_by_tag(@tag_id)
-  #   total = 0
-  #   for transaction in transactions
-  #     total += transaction.transaction_amount
-  #   end
-  #   return total
-  # end
-
-  def self.total_amount_spent
+  def self.total_amount_spent_by_tag()
+    transactions = Transaction.transactions_by_tag(@tag_id)
     total = 0
-    transactions = Transaction.all
     for transaction in transactions
       total += transaction.transaction_amount
     end
     return total
   end
+
+  def self.total()
+      sql = "SELECT SUM(transaction_amount) FROM transactions;"
+      return SqlRunner.run(sql)[0]['sum'].to_f
+    end
+
 
   def update
     sql = "UPDATE transactions

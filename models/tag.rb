@@ -27,13 +27,6 @@ class Tag
   end
 
 
-  def merchants
-    sql = "SELECT m.* FROM merchants m INNER JOIN transactions t ON t.merchant_id = m.id WHERE t.tag_id = $1; "
-    values = [@id]
-    results = SqlRunner.run(sql, values)
-    return results.map { |merchant| Merchant.new(merchant)}
-  end
-
   def update
     sql = "UPDATE tags
     SET (category_name) = ($1) WHERE id = $2"

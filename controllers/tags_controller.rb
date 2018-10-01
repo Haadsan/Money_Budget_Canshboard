@@ -1,5 +1,5 @@
 require("sinatra")
-require("sinatra/contrib/all" )
+require("sinatra/contrib/all" ) if development?
 
 require_relative("../models/transaction")
 require_relative("../models/tag")
@@ -9,14 +9,16 @@ also_reload( '../models/*' )
 require("pry-byebug")
 
 
-# index
-get '/tags' do
+get '/tags/new' do
   @tags = Tag.all()
-  erb ( :"tags/index" )
+  erb(:"tags/new")
 end
-#
-#show tags of all trasactional data
-get '/tags/:id' do
-  @tags = Tag.find(params['id'])
-  erb(:"tags/show")
+
+#new
+
+post '/tags/new' do
+  tags = Tag.category_names
+  @tag = Tag.new(params)
+  @tag.save() unless tags.include? @tag.category_name
+  redirect to "/tags/new"
 end
