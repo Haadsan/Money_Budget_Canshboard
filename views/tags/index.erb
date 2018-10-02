@@ -1,10 +1,8 @@
 <h1>Manage Your Tags</h1>
 
 <table>
-  <form action="/tags/new" method="get">
-    <input type="submit" value="Create Tag">
-  </form>
-  
+<a href="/tags/new">Create Tags</a>
+
   <% for tag in @tags %>
   <tr>
     <td><a href="/tags/<%=tag.id %>"><%= tag.category_name %></a></td>
