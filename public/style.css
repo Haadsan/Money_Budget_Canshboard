@@ -1,0 +1,68 @@
+body {
+  color: mistyrose;
+  background-color: teal;
+  font-family: brandon-grotesque, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+}
+
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  margin: -10px;
+  background-color: black;
+}
+
+li a {
+  display: block;
+  color: mistyrose;
+  padding: 1em 1em;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: LIGHTSLATEGREY;
+}
+
+h1, h2, p {
+  text-align: center;
+}
+
+
+table, td, td {
+  margin-left:auto;
+  margin-right:auto;
+  border-collapse: collapse;
+  border: 0.01em solid mistyrose;
+  padding: 10px;
+  text-align: center;
+}
+
+.grid-row {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+
+.cell {
+  padding: 20px;
+  text-align: center;
+}
+.add-transaction{
+  display: block;
+width: 25vw;
+margin: 0 auto;
+}
+
+.nav li {
+    display: inline-block;
+    margin-right: -4px;
+    flex-wrap: nowrap;
+     justify-content: space-evenly;
+     display: flex;
+     align-items: flex-start;
+     flex-wrap: nowrap;
+     height: 100%;
+      justify-content: space-evenly;
+
+  }
