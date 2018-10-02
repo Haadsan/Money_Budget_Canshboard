@@ -1,6 +1,10 @@
 <h1>Manage Your Tags</h1>
 
 <table>
+  <form action="/tags/new" method="get">
+    <input type="submit" value="Create Tag">
+  </form>
+  
   <% for tag in @tags %>
   <tr>
     <td><a href="/tags/<%=tag.id %>"><%= tag.category_name %></a></td>
@@ -8,13 +12,14 @@
 
       <form action="/tags/<%= tag.id %>/edit" method="get" >
         <input type="submit" value="Edit Tag" />
-
-        <form method="get" action="/tags/new">
-          <input type="submit" value="Create Tag" name="category_name">
         </form>
 
 
-      </form>
+        <form action="/tags/<%= tag.id %>/delete" method="post">
+          <input type="submit" value="Delete" />
+          </form
+
+
   </tr>
   <% end %>
 

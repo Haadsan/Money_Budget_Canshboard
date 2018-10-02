@@ -1,0 +1,31 @@
+
+
+<h1>Edit Transaction</h1>
+<form action="/transactions/edit/<%= @transaction.transaction_id %>" method="post">
+  <label for="transaction_amount">Transaction Amount: £</label>
+  <input id="transaction_amount" type="text" name="transaction_amount" value="<%= @transaction.transaction_amount() %>">
+
+  <label for="transaction_date">Transaction Date:</label>
+  <input id="transaction_date" type="text" name="transaction_date" value="<%= @transaction.transaction_date() %>">
+
+
+<form action="/transactions" method="get">
+<label>Select a Tag
+<select name ="tag_id">
+  <% for tag in @tags %>
+  <option value = "<%= tag.id %>"><%= tag.category_name %></option>
+  <% end %>
+</select>
+</label>
+
+
+<label>Select a Merchant
+<select name ="merchant_id">
+<% for merchant in @merchants %>
+<option value = "<%= merchant.id %>"><%= merchant.merchant_name %></option>
+<% end %>
+</select>
+</label>
+
+<input type="submit" value="Create New Transaction">
+</form>

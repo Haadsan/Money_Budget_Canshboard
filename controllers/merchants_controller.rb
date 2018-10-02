@@ -15,19 +15,23 @@ get '/merchants' do
   erb(:"merchants/index")
 end
 
-get '/merchants/:id' do
-  @merchant = Merchant.find(params['id'].to_i)
-  erb( :"merchants/show" )
+get "/merchants/:id/edit" do
+  @merchant = Merchant.find(params[:id])
+  erb(:"merchants/edit")
 end
 
 get '/merchants/new' do
   erb(:"merchants/new")
 end
 
-# get "/merchants/:id/edit" do
-#   @merchant = Merchant.find(params[:id])
-#   erb(:"merchants/edit")
-# end
+get '/merchants/:id' do
+  @merchant = Merchant.find(params['id'].to_i)
+  erb( :"merchants/show" )
+end
+
+
+
+
 
 post "/merchants" do
   @merchant = Merchant.new(params)
@@ -35,14 +39,14 @@ post "/merchants" do
   erb(:"merchants/create")
 end
 #
-# post "/merchants/edit/:tag_id" do
-#   @merchant = Merchant.new(params)
-#   @merchant.update()
-#   redirect to("/merchants")
-# end
-#
-# post '/merchants/:id/delete' do
-#   @merchant = Merchant.find(params[:id])
-#   @merchant.delete()
-#   redirect '/merchants'
-# end
+post "/merchants/:id" do
+  @merchant = Merchant.new(params)
+  @merchant.update()
+  redirect to("/merchants")
+end
+
+post '/merchants/:id/delete' do
+  @merchant = Merchant.find(params[:id])
+  @merchant.delete()
+  redirect '/merchants'
+end

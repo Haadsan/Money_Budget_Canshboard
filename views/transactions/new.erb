@@ -1,0 +1,30 @@
+<h1>New Transaction</h1>
+
+<form action="/transactions" method="post">
+<label for="transaction_amount"> Transaction Amount: £</label>
+<input type="text" name="transaction_amount" id="transaction_amount"/>
+
+<label for="transaction_date">Transaction Date:</label>
+<input type="text" name="transaction_date" id= "transaction_date"/>
+
+<label for="tag-selection">Select a Tag:</label>
+<select name="tag_id" id="tag-selection">
+
+<% for tag in @tags %>
+<option value="<%=tag.id%>"><%=tag.category_name%></option>
+<%end%>
+
+</select>
+
+
+<label for="merchant-selection">Select a Merchant:</label>
+<select name="merchant_id" id="merchant-selection">
+<% for merchant in @merchants %>
+<option value = "<%= merchant.id %>"><%= merchant.merchant_name %></option>
+<% end %>
+
+</select>
+
+<input type="submit" value="Add New Transaction">
+
+</form>

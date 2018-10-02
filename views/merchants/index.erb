@@ -1,20 +1,22 @@
 <h1>Manage Your Merchants</h1>
 
 <table>
+  <a href="/merchants/new">Create Merchant</a>
   <% for merchant in @merchants %>
   <tr>
     <td><a href="/merchants/<%=merchant.id %>"><%= merchant.merchant_name %></a></td>
     <td>
 
-      <form method="get" action="/merchant/<%= merchant.id %>/edit"  >
-        <input type="submit" value="Edit Merchant" />
+      <form method="get" action="/merchants/<%= merchant.id %>/edit">
+        <input type="submit" value="Edit Merchant">
+      </form>
 
 
-        <form action="/merchants/new" method="get" >
-          <input type="submit" value="Create Merchant" name="category_name">
+        <form action="/merchants/<%= merchant.id %>/delete" method="post">
+          <input type="submit" value="Delete" />
         </form>
 
-      </form>
+
   </tr>
   <% end %>
 

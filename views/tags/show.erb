@@ -2,6 +2,8 @@
 
 <label for="category_name"><%= @tag.category_name %></label>
 
+<a href="/tags/<%= @tag.id %>/edit"></a>
+
 <form action="/tags/<%= @tag.id %>/edit"  method="get">
   <input type="submit" value="Update" />
 </form>

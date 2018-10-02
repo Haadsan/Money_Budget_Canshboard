@@ -1,0 +1,10 @@
+
+<label for="tag_id"><%= @transaction.tag_id %></label>
+<label for="merchant_id"><%= @transaction.merchant_id %></label>
+<label for="transaction_amount"><%= @transaction.transaction_amount %></label>
+<label for="transaction_date"><%= @transaction.transaction_date %></label>
+
+
+<form method="get" action="/transactions/<%= @transaction.id %>/edit">
+  <input type="submit" value="Update transaction" />
+</form>

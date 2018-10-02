@@ -29,9 +29,9 @@ class Tag
 
   def update
     sql = "UPDATE tags
-    SET (category_name) = ($1) WHERE id = $2"
+    SET category_name = $1 WHERE id = $2"
     values = [@category_name, @id]
-    SqlRunner.run(sql)
+    SqlRunner.run(sql, values)
   end
 
   def delete()
@@ -59,4 +59,9 @@ class Tag
     return Tag.new(results.first)
   end
 
+  def self.find_category_name(id)
+      sql = "SELECT category_name FROM tags WHERE id = $1;"
+      values = [id]
+      return SqlRunner.run(sql, values).first
+    end
 end

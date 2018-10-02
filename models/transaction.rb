@@ -34,18 +34,25 @@ class Transaction
   end
 
   def merchant()
-    sql = "SELECT * FROM merchants WHERE merchant_id = $1"
+    sql = "SELECT * FROM merchants WHERE id = $1"
     values = [@merchant_id]
     results = SqlRunner.run(sql, values)
     return Merchant.new(results.first)
   end
 
   def tag()
-    sql = "SELECT * FROM tags WHERE tag_id = $1"
+    sql = "SELECT * FROM tags WHERE id = $1"
     values = [@tag_id]
     results = SqlRunner.run(sql, values)
     return Tag.new(results.first)
   end
+
+  def self.transactions_by_tag(tag_id)
+  sql = "SELECT * FROM transactions WHERE tag_id = $1;"
+  transactions = SqlRunner.run(sql)
+  result = transactions.map { |transaction| Transaction.new(transaction) }
+  return result
+end
 
   def self.total_amount_spent_by_tag()
     transactions = Transaction.transactions_by_tag(@tag_id)
@@ -55,6 +62,7 @@ class Transaction
     end
     return total
   end
+
 
   def self.total()
       sql = "SELECT SUM(transaction_amount) FROM transactions;"
@@ -68,7 +76,7 @@ class Transaction
     ($1, $2, $3, $4
       ) WHERE id = $5"
       values = [@tag_id, @merchant_id, @transaction_amount, @id]
-      SqlRunner.run(sql)
+      SqlRunner.run(sql, values)
     end
 
     def delete()

@@ -1,6 +1,6 @@
 
-
-<label for="category_name"><%= @tag.category_name %></label>
-<form action="/tags/<%= @tag.id %>/edit" method="get" >
-  <input type="submit" value="Update" />
+<form action="/tags" method="post" >
+  <label for="category_name">Name:</label>
+  <input id="category_name" type = "text" name="category_name"/>
+  <input type="submit" value="Update"/>
 </form>
