@@ -60,12 +60,14 @@ table, td, td {
   display: block;
   width: 25vw;
   margin: 0 auto;
+  color: black;
 }
 
 .add-merchant{
   display: block;
   width: 25vw;
   margin: 0 auto;
+  color: black;
 }
 
 .merchant-name{
