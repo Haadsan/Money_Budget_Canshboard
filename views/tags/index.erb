@@ -11,15 +11,14 @@
 
       <form action="/tags/<%= tag.id %>/edit" method="get" >
         <input type="submit" value="Edit Tag" />
-        </form>
+      </form>
 
 
-        <form action="/tags/<%= tag.id %>/delete" method="post">
-          <input type="submit" value="Delete" />
-          </form
+      <form action="/tags/<%= tag.id %>/delete" method="post">
+        <input type="submit" value="Delete" />
+        </form
 
+      </tr>
+      <% end %>
 
-  </tr>
-  <% end %>
-
-</table>
+    </table>

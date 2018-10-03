@@ -50,9 +50,9 @@ class Transaction
 
 
   def self.total()
-      sql = "SELECT SUM(transaction_amount) FROM transactions;"
-      return SqlRunner.run(sql)[0]['sum'].to_f
-    end
+    sql = "SELECT SUM(transaction_amount) FROM transactions;"
+    return SqlRunner.run(sql)[0]['sum'].to_f
+  end
 
 
   def update
@@ -88,6 +88,5 @@ class Transaction
       results = SqlRunner.run(sql,values)
       return Transaction.new(results.first)
     end
-
-
+    
   end

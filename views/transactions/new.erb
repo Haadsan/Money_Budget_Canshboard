@@ -2,18 +2,18 @@
 
 
 <form action="/transactions" method="post">
-<label for="transaction_amount"> Transaction Amount: £</label>
-<input type="text" name="transaction_amount" id="transaction_amount"/>
+  <label for="transaction_amount"> Transaction Amount: £</label>
+  <input type="text" name="transaction_amount" id="transaction_amount"/>
 
-<label for="transaction_date">Transaction Date:</label>
-<input type="text" name="transaction_date" id= "transaction_date"/>
+  <label for="transaction_date">Transaction Date:</label>
+  <input type="text" name="transaction_date" id= "transaction_date"/>
 
-<label for="tag-selection">Select a Tag:</label>
-<select name="tag_id" id="tag-selection">
+  <label for="tag-selection">Select a Tag:</label>
+  <select name="tag_id" id="tag-selection">
 
-<% for tag in @tags %>
-<option value="<%=tag.id%>"><%=tag.category_name%></option>
-<%end%>
+  <% for tag in @tags %>
+  <option value="<%=tag.id%>"><%=tag.category_name%></option>
+  <%end%>
 
 </select>
 

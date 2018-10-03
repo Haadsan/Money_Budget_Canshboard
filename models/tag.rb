@@ -59,5 +59,4 @@ class Tag
     return Tag.new(results.first)
   end
 
-  
 end

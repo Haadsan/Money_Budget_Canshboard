@@ -9,23 +9,23 @@
   <input id="transaction_date" type="text" name="transaction_date" value="<%= @transaction.transaction_date() %>">
 
 
-<form action="/transactions" method="get">
-<label>Select a Tag
-<select name ="tag_id">
-  <% for tag in @tags %>
-  <option value = "<%= tag.id %>"><%= tag.category_name %></option>
-  <% end %>
-</select>
-</label>
+  <form action="/transactions" method="get">
+    <label>Select a Tag
+      <select name ="tag_id">
+        <% for tag in @tags %>
+        <option value = "<%= tag.id %>"><%= tag.category_name %></option>
+        <% end %>
+      </select>
+    </label>
 
 
-<label>Select a Merchant
-<select name ="merchant_id">
-<% for merchant in @merchants %>
-<option value = "<%= merchant.id %>"><%= merchant.merchant_name %></option>
-<% end %>
-</select>
-</label>
+    <label>Select a Merchant
+      <select name ="merchant_id">
+      <% for merchant in @merchants %>
+      <option value = "<%= merchant.id %>"><%= merchant.merchant_name %></option>
+      <% end %>
+    </select>
+  </label>
 
-<input type="submit" value="Create New Transaction">
+  <input type="submit" value="Create New Transaction">
 </form>

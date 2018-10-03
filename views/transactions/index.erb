@@ -21,8 +21,8 @@
       <td><a class="transaction" href="/transactions/<%= transaction.id %>"> £<%= "%.2f" %transaction.transaction_amount %></td>
         <td><a class="transaction" href="/transactions/<%= transaction.id %>"> <%= transaction.transaction_date %></td>
           <td>      <form action="/transactions/<%= transaction.id %>/delete" method="post">
-                  <input type="submit" value="Delete Transaction" />
-                </form></td>
+            <input type="submit" value="Delete Transaction" />
+          </form></td>
         </tr>
         <% end %>
         <tr>
