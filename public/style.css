@@ -1,10 +1,11 @@
 body {
   color: mistyrose;
-  background-color: teal;
+  background-color: #1F7A8C;
   font-family: brandon-grotesque, sans-serif;
   font-style: normal;
   font-weight: 100;
 }
+
 
 ul {
   list-style-type: none;
@@ -52,6 +53,7 @@ table, td, td {
   display: block;
   width: 25vw;
   margin: 0 auto;
+  color: black;
 }
 
 .add-tag{

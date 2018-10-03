@@ -20,6 +20,6 @@ id SERIAL4 PRIMARY KEY,
 tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE,
 merchant_id INT4 REFERENCES merchants(id) ON DELETE CASCADE,
 transaction_amount INT4,
-transaction_date TIMESTAMP
+transaction_date DATE
 
 );

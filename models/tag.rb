@@ -59,16 +59,5 @@ class Tag
     return Tag.new(results.first)
   end
 
-  def self.find_category_name(id)
-      sql = "SELECT category_name FROM tags WHERE id = $1;"
-      values = [id]
-      return SqlRunner.run(sql, values).first
-    end
-
-    def merchant()
-        sql = "SELECT merchant.* FROM merchants merchant INNER JOIN transactions transaction ON transaction.merchant_id = merchant.id WHERE transaction.tag_id = $1;"
-        values = [@id]
-        results = SqlRunner.run(sql, values)
-        return results.map { |merchant| Merchant.new(tag) }
-      end
+  
 end
