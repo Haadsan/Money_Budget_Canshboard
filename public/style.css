@@ -50,17 +50,41 @@ table, td, td {
 }
 .add-transaction{
   display: block;
-width: 25vw;
-margin: 0 auto;
+  width: 25vw;
+  margin: 0 auto;
+}
+
+.add-tag{
+  display: block;
+  width: 25vw;
+  margin: 0 auto;
+}
+
+.add-merchant{
+  display: block;
+  width: 25vw;
+  margin: 0 auto;
+}
+
+.merchant-name{
+  color: floralwhite;
+}
+
+.transaction{
+  color: floralwhite;
+}
+
+.category-name{
+  color: floralwhite;
 }
 
 .nav li {
-    display: inline-block;
-    margin-right: -4px;
-    flex-wrap: nowrap;
-     justify-content: space-evenly;
-     display: flex;
-     align-items: flex-start;
-     flex-wrap: nowrap;
-     height: 200%;
-  }
+  display: inline-block;
+  margin-right: -4px;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 100%;
+}

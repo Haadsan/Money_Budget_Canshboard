@@ -30,6 +30,8 @@ end
 
 get "/transactions/:id/edit" do
   @transaction = Transaction.find(params[:id])
+  @tags = Tag.all
+  @merchants = Merchant.all
   erb(:"transactions/edit")
 end
 

@@ -1,11 +1,12 @@
 <h1>Manage Your Tags</h1>
 
+<a class="add-tag" href="/tags/new">Create Tags</a>
+
 <table>
-<a href="/tags/new">Create Tags</a>
 
   <% for tag in @tags %>
   <tr>
-    <td><a href="/tags/<%=tag.id %>"><%= tag.category_name %></a></td>
+    <td><a class="category-name" href="/tags/<%=tag.id %>"><%= tag.category_name %></a></td>
     <td>
 
       <form action="/tags/<%= tag.id %>/edit" method="get" >

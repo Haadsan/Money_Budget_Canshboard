@@ -1,7 +1,7 @@
 
 
 <h1>Edit Transaction</h1>
-<form action="/transactions/edit/<%= @transaction.transaction_id %>" method="post">
+<form action="/transactions/<%= @transaction.id%>/edit" method="post">
   <label for="transaction_amount">Transaction Amount: £</label>
   <input id="transaction_amount" type="text" name="transaction_amount" value="<%= @transaction.transaction_amount() %>">
 

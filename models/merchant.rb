@@ -62,10 +62,6 @@ class Merchant
     return Merchant.new(results.first)
   end
 
-  def self.find_merchant_name(id)
-      sql = "SELECT merchant_name FROM tags WHERE id = $1;"
-      values = [id]
-      return SqlRunner.run(sql, values).first
-    end
+
 
 end
